@@ -5,5 +5,8 @@ package org.example;
 public class Main {
     static void main() {
         System.out.println("Employee Clothing Management System");
+
+        Employee employee1 = new Employee("Chisom", "Chiobi", 1);
+        System.out.println(employee1.getLastName());
     }
 }
