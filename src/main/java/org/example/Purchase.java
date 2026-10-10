@@ -18,7 +18,7 @@ public class Purchase {
                     int amountToBeDeductedFromPayroll, Instant completedPurchaseTimestamp) {
         this.purchaseId = UUID.randomUUID();
         this.employeeWhoMadeThePurchase = employeeWhoMadeThePurchase;
-        this.purchaseItems = purchaseItems;
+        this.purchaseItems = List.copyOf(purchaseItems);
         this.totalPurchaseCost = totalPurchaseCost;
         this.allowanceUsedForPurchase = allowanceUsedForPurchase;
         this.amountToBeDeductedFromPayroll = amountToBeDeductedFromPayroll;

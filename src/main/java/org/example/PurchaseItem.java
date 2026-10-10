@@ -3,10 +3,10 @@ package org.example;
 import java.util.UUID;
 
 public class PurchaseItem {
-    UUID purchaseItemId;
-    Clothing clothingItemPurchased;
-    int quantityPurchased;
-    int priceAtTimeOfPurchase;
+    private final UUID purchaseItemId;
+    private final Clothing clothingItemPurchased;
+    private final int quantityPurchased;
+    private final int priceAtTimeOfPurchase;
 
     public PurchaseItem(Clothing clothingItemPurchased, int quantityPurchased, int priceAtTimeOfPurchase) {
         this.purchaseItemId = UUID.randomUUID();
