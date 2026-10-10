@@ -5,33 +5,23 @@ import java.util.List;
 import java.util.UUID;
 
 public class Purchase {
-    UUID purchaseId;
-    Employee employeeWhoMadeThePurchase;
-    List<PurchaseItem> purchaseItems;
-    int totalPurchaseCost;
-    int allowanceUsedForPurchase;
-    int amountToBeDeductedFromPayroll;
-    Instant completedPurchaseTimestamp;
+    private final UUID purchaseId;
+    private final Employee employeeWhoMadeThePurchase;
+    private final List<PurchaseItem> purchaseItems;
+    private final int totalPurchaseCost;
+    private final int allowanceUsedForPurchase;
+    private final int amountToBeDeductedFromPayroll;
+    private final Instant completedPurchaseTimestamp;
 
-    public Purchase(Employee employeeWhoMadeThePurchase, List<PurchaseItem> purchaseItems) {
+    public Purchase(Employee employeeWhoMadeThePurchase, List<PurchaseItem> purchaseItems,
+                    int totalPurchaseCost, int allowanceUsedForPurchase,
+                    int amountToBeDeductedFromPayroll, Instant completedPurchaseTimestamp) {
         this.purchaseId = UUID.randomUUID();
         this.employeeWhoMadeThePurchase = employeeWhoMadeThePurchase;
         this.purchaseItems = purchaseItems;
-    }
-
-    public void setTotalPurchaseCost(int totalPurchaseCost) {
         this.totalPurchaseCost = totalPurchaseCost;
-    }
-
-    public void setAllowanceUsedForPurchase(int allowanceUsedForPurchase) {
         this.allowanceUsedForPurchase = allowanceUsedForPurchase;
-    }
-
-    public void setAmountToBeDeductedFromPayroll(int amountToBeDeductedFromPayroll) {
         this.amountToBeDeductedFromPayroll = amountToBeDeductedFromPayroll;
-    }
-
-    public void setCompletedPurchaseTimestamp(Instant completedPurchaseTimestamp) {
         this.completedPurchaseTimestamp = completedPurchaseTimestamp;
     }
 
