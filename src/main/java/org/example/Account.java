@@ -14,8 +14,8 @@ public class Account {
     }
 
     public String deductFromAccountBalance(Clothing clothing) {
-        accountBalance -= clothing.itemPrice;
-        return ("$" + clothing.itemPrice +
+        accountBalance -= clothing.getItemPrice();
+        return ("$" + clothing.getItemPrice() +
                 " deducted from your account balance. Your new Account balance is " +
                 accountBalance + ".");
     }

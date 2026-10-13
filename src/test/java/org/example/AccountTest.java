@@ -23,4 +23,15 @@ class AccountTest {
         assertEquals("$25 deducted from your account balance. Your new Account balance is 15.", message);
         assertEquals(15, account.getAccountBalance());
     }
+
+    @Test
+    void deductingFullBalanceBringsBalanceToZero() {
+        Account account = new Account();
+        Clothing clothing = new Clothing("Jacket", "Outerwear", 40, 1);
+
+        String message = account.deductFromAccountBalance(clothing);
+
+        assertEquals("$40 deducted from your account balance. Your new Account balance is 0.", message);
+        assertEquals(0, account.getAccountBalance());
+    }
 }

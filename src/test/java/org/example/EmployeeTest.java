@@ -32,7 +32,9 @@ class EmployeeTest {
         assertEquals("J", employee.getPreferredName());
 
         employee.setLastName("Smith");
+        employee.setPreferredName("Jay");
 
         assertEquals("Smith", employee.getLastName());
+        assertEquals("Jay", employee.getPreferredName());
     }
 }
