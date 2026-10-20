@@ -15,27 +15,27 @@ class PurchaseTest {
     @Test
     void purchaseStoresProvidedValuesAndCopiesItsItemList() {
         Employee employee = new Employee("Jane", "Doe", 101);
-        PurchaseItem item = new PurchaseItem(new Clothing("Polo Shirt", "Shirt", 25, 5), 2, 20);
+        PurchaseItem item = new PurchaseItem(new Clothing("Polo Shirt", "Shirt", 2500, 5), 2, 2000);
         List<PurchaseItem> items = new ArrayList<>(List.of(item));
         Instant timestamp = Instant.parse("2026-10-10T12:00:00Z");
 
-        Purchase purchase = new Purchase(employee, items, 40, 30, 10, timestamp);
+        Purchase purchase = new Purchase(employee, items, 4000, 3000, 1000, timestamp);
         items.clear();
 
         assertNotNull(purchase.getPurchaseId());
         assertEquals(employee, purchase.getEmployeeWhoMadeThePurchase());
         assertEquals(List.of(item), purchase.getPurchaseItems());
-        assertEquals(40, purchase.getTotalPurchaseCost());
-        assertEquals(30, purchase.getAllowanceUsedForPurchase());
-        assertEquals(10, purchase.getAmountToBeDeductedFromPayroll());
+        assertEquals(4000, purchase.getTotalPurchaseCost());
+        assertEquals(3000, purchase.getAllowanceUsedForPurchase());
+        assertEquals(1000, purchase.getAmountToBeDeductedFromPayroll());
         assertEquals(timestamp, purchase.getPurchaseTimestamp());
     }
 
     @Test
     void purchaseItemListCannotBeModified() {
-        PurchaseItem item = new PurchaseItem(new Clothing("Polo Shirt", "Shirt", 25, 5), 1, 25);
+        PurchaseItem item = new PurchaseItem(new Clothing("Polo Shirt", "Shirt", 2500, 5), 1, 2500);
         Purchase purchase = new Purchase(
-                new Employee("Jane", "Doe", 101), List.of(item), 25, 25, 0, Instant.now()
+                new Employee("Jane", "Doe", 101), List.of(item), 2500, 2500, 0, Instant.now()
         );
 
         assertThrows(UnsupportedOperationException.class, () -> purchase.getPurchaseItems().clear());

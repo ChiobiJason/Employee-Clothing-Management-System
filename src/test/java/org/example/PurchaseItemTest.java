@@ -10,14 +10,14 @@ class PurchaseItemTest {
 
     @Test
     void purchaseItemStoresProvidedValues() {
-        Clothing clothing = new Clothing("Polo Shirt", "Shirt", 25, 5);
+        Clothing clothing = new Clothing("Polo Shirt", "Shirt", 2500, 5);
 
-        PurchaseItem item = new PurchaseItem(clothing, 2, 20);
+        PurchaseItem item = new PurchaseItem(clothing, 2, 2000);
 
         assertNotNull(item.getPurchaseItemId());
         assertEquals(clothing, item.getClothingItemPurchased());
         assertEquals(2, item.getQuantityPurchased());
-        assertEquals(20, item.getPriceAtTimeOfPurchase());
+        assertEquals(2000, item.getPriceAtTimeOfPurchase());
     }
 
     @Test
@@ -27,15 +27,15 @@ class PurchaseItemTest {
 
     @Test
     void purchaseItemRejectsZeroOrNegativeQuantity() {
-        Clothing clothing = new Clothing("Polo Shirt", "Shirt", 25, 5);
+        Clothing clothing = new Clothing("Polo Shirt", "Shirt", 2500, 5);
 
-        assertThrows(IllegalArgumentException.class, () -> new PurchaseItem(clothing, 0, 20));
-        assertThrows(IllegalArgumentException.class, () -> new PurchaseItem(clothing, -1, 20));
+        assertThrows(IllegalArgumentException.class, () -> new PurchaseItem(clothing, 0, 2000));
+        assertThrows(IllegalArgumentException.class, () -> new PurchaseItem(clothing, -1, 2000));
     }
 
     @Test
     void purchaseItemRejectsNegativePurchasePrice() {
-        Clothing clothing = new Clothing("Polo Shirt", "Shirt", 25, 5);
+        Clothing clothing = new Clothing("Polo Shirt", "Shirt", 2500, 5);
 
         assertThrows(IllegalArgumentException.class, () -> new PurchaseItem(clothing, 1, -1));
     }
